@@ -1,6 +1,6 @@
 import sys
 
-def get_seet_ids():
+def get_seat_ids():
     for line in sys.stdin:
         line = line.strip()
         if line:
@@ -9,4 +9,4 @@ def get_seet_ids():
             line = line.replace("L", "0")
             line = line.replace("R", "1")
             yield int(line, 2)
-print(max(get_seet_ids()))
+print(max(get_seat_ids()))

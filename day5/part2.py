@@ -1,6 +1,6 @@
 import sys
 
-def get_seet_ids():
+def get_seat_ids():
     for line in sys.stdin:
         line = line.strip()
         if line:
@@ -11,7 +11,7 @@ def get_seet_ids():
             yield int(line, 2)
 
 def find_my_seat():
-    seat_ids = list(get_seet_ids())
+    seat_ids = list(get_seat_ids())
     arr = [False for _ in range(max(seat_ids) + 1)]
     for seat_id in seat_ids:
         arr[seat_id] = True
