@@ -26,7 +26,7 @@ Collection extend [
 FileStream extend [
   doTrimmedLines: block [
     |line index|
-    [(line := stdin nextLine) notNil] whileTrue: [
+    [(line := self nextLine) notNil] whileTrue: [
         line := line trim.
         block value: line.
     ].
