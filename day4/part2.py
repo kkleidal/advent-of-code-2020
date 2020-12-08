@@ -2,10 +2,12 @@ import re
 from abc import ABC, abstractmethod
 from part1 import main, is_passport_valid as old_is_passport_valid
 
+
 class Rule(ABC):
     @abstractmethod
     def accepts(self, ctx, value: str) -> bool:
         ...
+
 
 class MatchesRegex(Rule):
     def __init__(self, pattern: str):
@@ -16,6 +18,7 @@ class MatchesRegex(Rule):
         ctx.pattern_match = m
         return m is not None
 
+
 class InRange(Rule):
     def __init__(self, low, high):
         self.low = low
@@ -23,6 +26,7 @@ class InRange(Rule):
 
     def accepts(self, ctx, value: str) -> bool:
         return self.low <= int(value) <= self.high
+
 
 class CustomHeightRule(Rule):
     def accepts(self, ctx, value: str) -> bool:
@@ -33,6 +37,7 @@ class CustomHeightRule(Rule):
         if unit == "cm" and not (150 <= hgt <= 193):
             return False
         return True
+
 
 year_is_valid = MatchesRegex("^\d{4}$")
 rules = {
@@ -45,8 +50,10 @@ rules = {
     "pid": [MatchesRegex("^\d{9}$")],
 }
 
+
 class Ctx:
     ...
+
 
 def is_passport_valid(passport):
     if not old_is_passport_valid(passport):
@@ -58,10 +65,13 @@ def is_passport_valid(passport):
                 return False
     return True
 
+
 def invert(fn):
     def wrapped(*args, **kwargs):
         return not fn(*args, **kwargs)
+
     return wrapped
+
 
 if __name__ == "__main__":
     main(is_passport_valid)

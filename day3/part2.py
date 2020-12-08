@@ -9,6 +9,7 @@ for line in sys.stdin:
         grid.append([c == "#" for c in line])
 grid = np.array(grid)
 
+
 def find_trees_for_slope(slope):
     dx, dy = slope
     count = 0
@@ -19,6 +20,7 @@ def find_trees_for_slope(slope):
         x = (x + dx) % grid.shape[1]
         y += dy
     return count
+
 
 slopes = [(1, 1), (3, 1), (5, 1), (7, 1), (1, 2)]
 print(reduce(lambda x, y: x * y, map(find_trees_for_slope, slopes), 1))

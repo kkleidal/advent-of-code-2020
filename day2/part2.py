@@ -1,7 +1,9 @@
 import sys
 
+
 def exactly_one(iterable):
     return sum(1 if x else 0 for x in iterable) == 1
+
 
 n_valid = 0
 for line in sys.stdin:
@@ -14,4 +16,3 @@ for line in sys.stdin:
         if valid:
             n_valid += 1
 print(n_valid)
-

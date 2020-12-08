@@ -3,8 +3,12 @@ import re
 from collections import defaultdict
 
 
-whole_rule = re.compile(r"^([a-z ]+) bags contain (\d+ [a-z ]+ bags?(?:, \d+ [a-z ]+ bags?)*|no other bags)\.$")
+whole_rule = re.compile(
+    r"^([a-z ]+) bags contain (\d+ [a-z ]+ bags?(?:, \d+ [a-z ]+ bags?)*|no other bags)\.$"
+)
 pred_part = re.compile(r"^(\d+) ([a-z ]+) bags?$")
+
+
 def parse_rule(line):
     m = whole_rule.match(line)
     assert m, f"{line} doesn't match whole_rule"
@@ -22,6 +26,7 @@ def get_rules():
         if line:
             yield from parse_rule(line)
 
+
 def find_all_outer_colors(adjacency, current_color, history):
     for color in adjacency[current_color]:
         if color == current_color or color in history:
@@ -36,6 +41,7 @@ def part1():
     for outer, _, inner in get_rules():
         adjacency[inner].add(outer)
     print(len(set(find_all_outer_colors(adjacency, "shiny gold", ()))))
+
 
 if __name__ == "__main__":
     part1()

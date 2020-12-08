@@ -14,4 +14,3 @@ for line in sys.stdin:
         if valid:
             n_valid += 1
 print(n_valid)
-

@@ -1,5 +1,6 @@
 import sys
 
+
 def get_seat_ids():
     for line in sys.stdin:
         line = line.strip()
@@ -9,6 +10,7 @@ def get_seat_ids():
             line = line.replace("L", "0")
             line = line.replace("R", "1")
             yield int(line, 2)
+
 
 def find_my_seat():
     seat_ids = list(get_seat_ids())
