@@ -22,20 +22,22 @@ def get_nth_number_spoken(seq, n):
         t += 1
     return last_spoken
 
+
 def tests():
     for seq, exp in [
-        ([0,3,6], 436),
-        ([1,3,2], 1),
-        ([2,1,3], 10),
-        ([1,2,3], 27),
-        ([2,3,1], 78),
-        ([3,2,1], 438),
-        ([3,1,2], 1836)
+        ([0, 3, 6], 436),
+        ([1, 3, 2], 1),
+        ([2, 1, 3], 10),
+        ([1, 2, 3], 27),
+        ([2, 3, 1], 78),
+        ([3, 2, 1], 438),
+        ([3, 1, 2], 1836),
     ]:
         out = get_nth_number_spoken(seq, 2020)
         print(seq, out, exp)
         assert out == exp
 
+
 if __name__ == "__main__":
     tests()
-    print(get_nth_number_spoken([0,6,1,7,2,19,20], 2020))
+    print(get_nth_number_spoken([0, 6, 1, 7, 2, 19, 20], 2020))
