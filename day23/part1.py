@@ -126,11 +126,11 @@ for i in range(rounds + 1):
     ll.shuffle_round()
 print("Part 1:", ll.result())
 
-# ll = LL(inp)
-# print("Part 2: creating LL")
-# ll.update(tqdm(range(max(inp) + 1, 101)))
-# rounds = 101
-# print("Part 2: shuffling")
-# for i in tqdm(range(rounds + 1)):
-#     print(ll)
-#     ll.shuffle_round()
+ll = LL(inp)
+print("Part 2: creating LL")
+ll.update(tqdm(range(max(inp) + 1, 1000001)))
+rounds = 10000001
+print("Part 2: shuffling")
+for i in tqdm(range(rounds + 1)):
+    print(ll)
+    ll.shuffle_round()
